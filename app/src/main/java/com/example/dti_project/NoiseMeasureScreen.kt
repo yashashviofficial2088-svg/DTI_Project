@@ -137,6 +137,7 @@ fun NoiseMeasureScreen(){
 
     LaunchedEffect(isRecording) {
 
+
         if (isRecording) {
 
             samples.clear()
@@ -157,6 +158,8 @@ fun NoiseMeasureScreen(){
                 samples.average()
             }
         }
+
+
     }
     DisposableEffect(Unit) {
         onDispose {

@@ -51,7 +51,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.LineHeightStyle
 
 @Composable
-fun login_page(){
+fun login_page(navigatetosecondscreen:()->Unit){
     var email_val by remember{ mutableStateOf("")}
     var password_val by remember{ mutableStateOf("")}
     var checkbox_status by remember{mutableStateOf(false)}
@@ -135,7 +135,7 @@ fun login_page(){
             Spacer(Modifier.height(41.dp))
             Button(
                 colors= ButtonDefaults.buttonColors(containerColor = colorResource(R.color.primaryButton)),
-                onClick={},
+                onClick={navigatetosecondscreen()},
                 modifier = Modifier.width(334.dp).height(56.dp),
                 shape = RoundedCornerShape(36.dp)
             ) {
@@ -210,11 +210,11 @@ fun fadingDividerText(value:String){
 
 
 }
-
+/*
 @Preview(showBackground = true)
 @Composable
 fun login_page_preview(){
     login_page()
 }
-
+*/
 

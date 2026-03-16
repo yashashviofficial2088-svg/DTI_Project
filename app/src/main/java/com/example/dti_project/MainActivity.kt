@@ -15,6 +15,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.dti_project.ui.theme.DTI_ProjectTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,12 +32,30 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    login_page()
+                    MyApp()
                 }
             }
         }
     }
 }
+
+
+@RequiresApi(Build.VERSION_CODES.S)
+@Composable
+fun MyApp(){
+    val navController= rememberNavController()
+    NavHost(navController = navController, startDestination = "firstScreen")
+    {
+        composable("firstScreen")
+        {
+           login_page({navController.navigate("secondScreen")})
+        }
+        composable("secondScreen") { NoiseMeasureScreen() }
+
+    }
+}
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
