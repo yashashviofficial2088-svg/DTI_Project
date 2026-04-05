@@ -50,7 +50,7 @@ fun MyApp(){
         {
            login_page({navController.navigate("secondScreen")})
         }
-        composable("secondScreen") { NoiseMeasureScreen() }
+        composable("secondScreen") { NoiseDashboardScreen() }
 
     }
 }
